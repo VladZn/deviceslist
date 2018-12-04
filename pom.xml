@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ru.vlad</groupId>
-  <artifactId>devices-list</artifactId>
+  <artifactId>devices-registry</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Devices List Spring MVC Webapp</name>
+  <name>Devices Registry Spring MVC Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://devices-list.herokuapp.com</url>
+  <url>http://devices-registry.herokuapp.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,7 +29,7 @@
   </dependencies>
 
   <build>
-    <finalName>devices-list</finalName>
+    <finalName>devices-registry</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

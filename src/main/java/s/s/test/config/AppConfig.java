@@ -31,20 +31,20 @@ public class AppConfig {
         Properties props = new Properties();
         // Setting JDBC properties
         props.put(DRIVER, Objects.requireNonNull(environment.getProperty("database.driver")));
-        props.put(URL, environment.getProperty("database.url"));
-        props.put(USER, environment.getProperty("database.username"));
-        props.put(PASS, environment.getProperty("database.password"));
+        props.put(URL, Objects.requireNonNull(environment.getProperty("database.url")));
+        props.put(USER, Objects.requireNonNull(environment.getProperty("database.username")));
+        props.put(PASS, Objects.requireNonNull(environment.getProperty("database.password")));
 
         // Setting Hibernate properties
-        props.put(SHOW_SQL, environment.getProperty("hibernate.show_sql"));
-        props.put(HBM2DDL_AUTO, environment.getProperty("hibernate.hbm2ddl.auto"));
+        props.put(SHOW_SQL, Objects.requireNonNull(environment.getProperty("hibernate.show_sql")));
+        props.put(HBM2DDL_AUTO, Objects.requireNonNull(environment.getProperty("hibernate.hbm2ddl.auto")));
 
         // Setting C3P0 properties
-        props.put(C3P0_MIN_SIZE, environment.getProperty("hibernate.c3p0.min_size"));
-        props.put(C3P0_MAX_SIZE, environment.getProperty("hibernate.c3p0.max_size"));
-        props.put(C3P0_ACQUIRE_INCREMENT, environment.getProperty("hibernate.c3p0.acquire_increment"));
-        props.put(C3P0_TIMEOUT, environment.getProperty("hibernate.c3p0.timeout"));
-        props.put(C3P0_MAX_STATEMENTS, environment.getProperty("hibernate.c3p0.max_statements"));
+        props.put(C3P0_MIN_SIZE, Objects.requireNonNull(environment.getProperty("hibernate.c3p0.min_size")));
+        props.put(C3P0_MAX_SIZE, Objects.requireNonNull(environment.getProperty("hibernate.c3p0.max_size")));
+        props.put(C3P0_ACQUIRE_INCREMENT, Objects.requireNonNull(environment.getProperty("hibernate.c3p0.acquire_increment")));
+        props.put(C3P0_TIMEOUT, Objects.requireNonNull(environment.getProperty("hibernate.c3p0.timeout")));
+        props.put(C3P0_MAX_STATEMENTS, Objects.requireNonNull(environment.getProperty("hibernate.c3p0.max_statements")));
 
         sessionFactory.setHibernateProperties(props);
         sessionFactory.setAnnotatedClasses(User.class, Device.class);

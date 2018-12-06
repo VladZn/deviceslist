@@ -20,16 +20,4 @@ public class MainWebAppInitializer extends AbstractAnnotationConfigDispatcherSer
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
-    //implements WebApplicationInitializer {
-//    @Override
-//    public void onStartup(ServletContext servletContext) throws ServletException {
-//
-//        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-//        context.scan("s.s.test");
-//        servletContext.addListener(new ContextLoaderListener(context));
-//        ServletRegistration.Dynamic appServlet = servletContext.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));
-//        appServlet.setLoadOnStartup(1);
-//        appServlet.addMapping("/");
-//
-//    }
 }

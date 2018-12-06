@@ -9,7 +9,7 @@ import java.security.Principal;
 @Controller
 public class MyController {
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index(Model model, Principal principal) {
         model.addAttribute("message", "You are logged in as " + principal.getName());
         return "index";

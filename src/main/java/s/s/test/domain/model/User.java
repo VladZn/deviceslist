@@ -8,8 +8,15 @@ import java.util.Date;
 
 @Entity
 @Table(name = "USERS", uniqueConstraints = {@UniqueConstraint(columnNames = "username", name = "users_unique_name_idx")})
+@NamedQueries({
+        //@NamedQuery(name = User.DELETE, query = "DELETE FROM User u WHERE u.id=:id"),
+        @NamedQuery(name = User.BY_NAME, query = "SELECT u FROM User u WHERE u.name=?1")//,
+        //@NamedQuery(name = User.ALL_SORTED, query = "SELECT u FROM User u ORDER BY u.name, u.email"),
+})
+
 public class User {//implements Persistable{
     public static final int START_SEQ = 1000;
+    public static final String BY_NAME = "User.getByName";
 
     @Id
     @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq", allocationSize = 1, initialValue = START_SEQ)

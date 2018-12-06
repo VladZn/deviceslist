@@ -5,5 +5,6 @@
 </head>
 <body>
     <h1>Index view</h1>
+    <h2>${message}</h2>
 </body>
 </html>

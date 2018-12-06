@@ -30,13 +30,13 @@ public class AppConfig {
 
         Properties props = new Properties();
         // Setting JDBC properties
-        props.put(DRIVER, Objects.requireNonNull(environment.getProperty("database.driver")));
-        props.put(URL, Objects.requireNonNull(environment.getProperty("database.url")));
-        props.put(USER, Objects.requireNonNull(environment.getProperty("database.username")));
-        props.put(PASS, Objects.requireNonNull(environment.getProperty("database.password")));
+        props.put(DRIVER,   Objects.requireNonNull(environment.getProperty("database.driver")));
+        props.put(URL,      Objects.requireNonNull(environment.getProperty("database.url")));
+        props.put(USER,     Objects.requireNonNull(environment.getProperty("database.username")));
+        props.put(PASS,     Objects.requireNonNull(environment.getProperty("database.password")));
 
         // Setting Hibernate properties
-        props.put(SHOW_SQL, Objects.requireNonNull(environment.getProperty("hibernate.show_sql")));
+        props.put(SHOW_SQL,     Objects.requireNonNull(environment.getProperty("hibernate.show_sql")));
         props.put(HBM2DDL_AUTO, Objects.requireNonNull(environment.getProperty("hibernate.hbm2ddl.auto")));
 
         // Setting C3P0 properties

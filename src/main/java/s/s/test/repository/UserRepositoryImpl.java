@@ -4,11 +4,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import s.s.test.domain.model.User;
 
 import java.util.List;
 
 @Repository
+@Transactional(readOnly = true)
 public class UserRepositoryImpl implements UserRepository {
 
     @Autowired

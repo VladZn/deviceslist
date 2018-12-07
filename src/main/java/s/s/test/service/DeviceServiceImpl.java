@@ -2,6 +2,7 @@ package s.s.test.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import s.s.test.domain.model.Device;
 import s.s.test.repository.DeviceRepository;
@@ -9,8 +10,7 @@ import s.s.test.repository.DeviceRepository;
 import java.util.List;
 import java.util.UUID;
 
-@Repository
-@Transactional(readOnly = true)
+@Service
 public class DeviceServiceImpl implements DeviceService {
 
     @Autowired

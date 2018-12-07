@@ -1,7 +1,9 @@
 package s.s.test.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.Proxy;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,6 +14,8 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
+//@JsonIgnoreProperties(ignoreUnknown = false)
+@Proxy(lazy = false)
 @NamedQueries({@NamedQuery(name = Device.GET_ALL, query = "SELECT d FROM Device d WHERE d.owner.id=:userId ORDER BY d.createdAt DESC")})
 @Table(name = "devices", uniqueConstraints = {@UniqueConstraint(columnNames = "serial_no", name = "devices_serial_no_uindex")})
 public class Device {

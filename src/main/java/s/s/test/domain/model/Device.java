@@ -2,6 +2,7 @@ package s.s.test.domain.model;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -10,8 +11,8 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.UUID;
 
-@SuppressWarnings("JpaQlInspection")
-@NamedQueries({@NamedQuery(name = Device.GET_ALL, query = "SELECT d FROM Device d WHERE d.owner.id=:userId ORDER BY d.createdAt DESC"),})
+@Entity
+@NamedQueries({@NamedQuery(name = Device.GET_ALL, query = "SELECT d FROM Device d WHERE d.owner.id=:userId ORDER BY d.createdAt DESC")})
 @Table(name = "devices", uniqueConstraints = {@UniqueConstraint(columnNames = "serial_no", name = "devices_serial_no_uindex")})
 public class Device {
 
@@ -32,7 +33,7 @@ public class Device {
 
     @NotBlank
     @Size(min = 2, max = 255)
-    @Column(name = "type", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @NotNull
@@ -42,6 +43,7 @@ public class Device {
     private User owner;
 
     @NotNull
+    @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss±hh")
     @Column(name = "created_at", columnDefinition = "timestamp with time zone default now()")
     private Date createdAt;
 
@@ -103,5 +105,9 @@ public class Device {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public boolean isNew(){
+        return this.id == null;
     }
 }
